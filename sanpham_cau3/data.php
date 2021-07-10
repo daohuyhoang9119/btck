@@ -1,5 +1,5 @@
 <?php
-  $mysqli = mysqli_connect("localhost","root","","qlsp");
+  $mysqli = mysqli_connect("localhost","root","","thck");
 
 // Check connection
 if ($mysqli->connect_errno) {
