@@ -25,13 +25,13 @@
     
   
       <select name="" id="status_id" class="custom-select custom-select-sm">
-      <option selected>chọn sản phẩm</option>
-      
-      <option value="1">chọn tất cả sản phẩm</option>
-      <option value="bút">Sản phẩm bút </option>
-      <option value="phấn">Sản phẩm phấn </option>
-      <option value="bảng">Sản phẩm bảng </option>
-      <option value="tập">Sản phẩm tập </option>
+         <option selected>chọn sản phẩm</option>
+         
+         <option value="1">chọn tất cả sản phẩm</option>
+         <option value="bút">Sản phẩm bút </option>
+         <option value="phấn">Sản phẩm phấn </option>
+         <option value="bảng">Sản phẩm bảng </option>
+         <option value="tập">Sản phẩm tập </option>
       
       </select>
 
@@ -56,25 +56,11 @@
                data:{loaisp:loaisp},
                success:function(data){
                   $('#loaddl').html(data);
-
                }
-
-
             });
-
          });
-
-
       });
 </script>
-
-
-
-    
-
-    
-
-
 
 </body>
 </html>

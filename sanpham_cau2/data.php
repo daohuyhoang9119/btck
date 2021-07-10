@@ -2,7 +2,7 @@
 	//require("index.php")
 	
 	
-	$mysqli = mysqli_connect("localhost","root","","qlsp");
+	$mysqli = mysqli_connect("localhost","root","","thck");
 
 	// Check connection
 	if ($mysqli->connect_errno) {
@@ -21,11 +21,7 @@
 	else{
 		$result = mysqli_query($mysqli, "select * from sanpham where LOAISP = '$key' ") ;
 	}
-
-	
-	
-	
-			
+		
 
 ?>
 <link rel="stylesheet" href="sp.css">
