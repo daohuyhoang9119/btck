@@ -2,17 +2,14 @@
 	//require("index.php")
 	
 	
-	$mysqli = mysqli_connect("localhost","root","","thck");
+	$mysqli = mysqli_connect("localhost","root","","qlsp");
 
 	// Check connection
 	if ($mysqli->connect_errno) {
 	  echo "Failed to connect to MySQL: " . $mysqli->connect_error;
 	  exit();
 	}
-	
-     
 	$key=$_POST['loaisp'];
-
 
 	if($key==1){
 		$result = mysqli_query($mysqli, "select * from sanpham ") ;
@@ -21,7 +18,11 @@
 	else{
 		$result = mysqli_query($mysqli, "select * from sanpham where LOAISP = '$key' ") ;
 	}
-		
+
+	
+	
+	
+			
 
 ?>
 <link rel="stylesheet" href="sp.css">
@@ -48,9 +49,17 @@
             <p>Giá: <?php echo number_format($row['GIA']),' VND'?></p>
 			<div class="soluong">
 			<p>Số lượng</p>
-			<input type="number" name ="number" min = "0" max = "15" class="page__cart-product-input" value="<?php echo $row_fetch_giohang['soluongmua']?>" />
-			<input class="pay"   type="submit" id="btn_pay" name="btn_pay" value="chọn mua">
+            <form class="soluong1" action="" method="POST">
 
+            <input type="number" name ="number[<?= $row['MASP'] ?>]" min = "0" max = "15" class="page__cart-product-input" value="1" />
+			    <input class="pay"   type="submit" id="btn_pay" name="btn_pay" value="chọn mua">
+            </form>
+            
+                
+                
+
+            
+			
 			</div>
 			
           </div>
@@ -59,6 +68,46 @@
          }
         ?>
        </ul> 
+       </script>
+
+                   
+          <script>
+        
+
+
+          $( ".soluong1" ).submit(function( event ) {
+
+
+          event.preventDefault();
+          alert("quick");
+          $.ajax({
+            type: "POST",
+            url:'./datagh.php?action=add' ,
+            data:  $( this ).serializeArray(),
+              success: function(response){
+                response = JSON.parse(response);
+                if(response.status==0){
+                  alert(response.message);
+
+                }
+                else{
+                  alert(response.message);
+                  
+                  
+                  
+
+                }
+
+              }
+
+          });
+
+        });
+
+      </script>
+      
+
+
 
 
 

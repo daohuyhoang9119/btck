@@ -25,20 +25,36 @@
     
   
       <select name="" id="status_id" class="custom-select custom-select-sm">
-         <option selected>chọn sản phẩm</option>
-         
-         <option value="1">chọn tất cả sản phẩm</option>
-         <option value="bút">Sản phẩm bút </option>
-         <option value="phấn">Sản phẩm phấn </option>
-         <option value="bảng">Sản phẩm bảng </option>
-         <option value="tập">Sản phẩm tập </option>
+      <option selected>chọn sản phẩm</option>
+      
+      <option value="1">chọn tất cả sản phẩm</option>
+      <option value="bút">Sản phẩm bút </option>
+      <option value="phấn">Sản phẩm phấn </option>
+      <option value="bảng">Sản phẩm bảng </option>
+      <option value="tập">Sản phẩm tập </option>
       
       </select>
 
    </div>
 
    </div>
-   <div id="loaddl"></div>
+   <div id="loaddl">
+   <!-- <form class="soluong1" action="">
+   <p>Số lượng</p>
+            
+                
+                <input type="number" name ="number__[]" min = "0" max = "15" class="page__cart-product-input" value="<?php echo $row_fetch_giohang['soluongmua']?>" />
+			    <input class="pay"   type="submit" id="btn_pay" name="btn_pay" value="chọn mua">
+   
+   
+   </form> -->
+			
+
+            
+			
+	
+
+   </div>
 
 
    
@@ -56,11 +72,62 @@
                data:{loaisp:loaisp},
                success:function(data){
                   $('#loaddl').html(data);
+
                }
+
+
             });
+
          });
+
+
       });
 </script>
+
+                   
+          <script>
+        
+
+
+          $( ".soluong1" ).submit(function( event ) {
+
+
+          event.preventDefault();
+          alert("quick");
+          $.ajax({
+            type: "POST",
+            url:'/SaleOnlineWebDeveloper/page/login.php' ,
+            data:  $( this ).serializeArray(),
+              success: function(response){
+                response = JSON.parse(response);
+                if(response.status==0){
+                  alert(response.message);
+
+                }
+                else{
+                  alert(response.message);
+                  window.location.href="/SaleOnlineWebDeveloper/page/index.php?manager=Account";
+                  
+                  
+
+                }
+
+              }
+
+          });
+
+        });
+
+      </script>
+      
+
+
+
+    
+
+    
+
+
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 	//require("index.php")
 	
 	
-	$mysqli = mysqli_connect("localhost","root","","thck");
+	$mysqli = mysqli_connect("localhost","root","","qlsp");
 
 	// Check connection
 	if ($mysqli->connect_errno) {
@@ -21,7 +21,11 @@
 	else{
 		$result = mysqli_query($mysqli, "select * from sanpham where LOAISP = '$key' ") ;
 	}
-		
+
+	
+	
+	
+			
 
 ?>
 <link rel="stylesheet" href="sp.css">
@@ -52,16 +56,32 @@
 			<input class="pay"   type="submit" id="btn_pay" name="btn_pay" value="chọn mua">
 
 			</div>
-			
+
+				
           </div>
         </li>
+
+
+
+
+	
         <?php
          }
         ?>
        </ul> 
 
 
-
+<div class="pt">
+   				<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+</div>
 
 
 

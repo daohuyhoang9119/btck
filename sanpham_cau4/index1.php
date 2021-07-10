@@ -1,3 +1,13 @@
+<?php
+ session_start();
+ if (!isset($_SESSION["cart"])) {
+    $_SESSION["cart"] = array();
+}
+
+
+ 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +20,29 @@
     <title>Document</title>
 </head>
 <body>
+    <?php
+$mysqli = mysqli_connect("localhost","root","","qlsp");
+
+// Check connection
+if ($mysqli->connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli->connect_error;
+  exit();
+}
+$products = mysqli_query($mysqli, "SELECT * FROM `sanpham` WHERE `MASP` IN (" . implode(",", array_keys($_POST['number'])) . ")");
+
+while ($row = mysqli_fetch_array($products)) {
+
+    
+
+
+
+?>
+
+<p>Giá: <?php echo number_format($row['GIA']),' VND'?></p>
+<?php
+}
+?>
+
     <div class="cau5">
         <h1>Quản lý giỏ hàng</h1>
         <form action="" class="cart__form">
@@ -23,7 +56,7 @@
                 <tr>
                     <td>
                         <img src="./gioi-thieu-ve-chiec-but-bi.png" alt="" class="img__product">
-                        <span>but bi</span>
+                        <span> <?php echo $row['TENSP'] ?></span>
                     </td>
                     <td>5000 đ</td>
                     <td>

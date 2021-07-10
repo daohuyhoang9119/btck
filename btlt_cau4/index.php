@@ -25,13 +25,13 @@
     
   
       <select name="" id="status_id" class="custom-select custom-select-sm">
-         <option selected>chọn sản phẩm</option>
-         
-         <option value="1">chọn tất cả sản phẩm</option>
-         <option value="bút">Sản phẩm bút </option>
-         <option value="phấn">Sản phẩm phấn </option>
-         <option value="bảng">Sản phẩm bảng </option>
-         <option value="tập">Sản phẩm tập </option>
+      <option selected>chọn sản phẩm</option>
+      
+      <option value="1">chọn tất cả sản phẩm</option>
+      <option value="bút">Sản phẩm bút </option>
+      <option value="phấn">Sản phẩm phấn </option>
+      <option value="bảng">Sản phẩm bảng </option>
+      <option value="tập">Sản phẩm tập </option>
       
       </select>
 
@@ -39,6 +39,17 @@
 
    </div>
    <div id="loaddl"></div>
+   <!-- <div class="pt">
+   <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+</div> -->
 
 
    
@@ -56,11 +67,25 @@
                data:{loaisp:loaisp},
                success:function(data){
                   $('#loaddl').html(data);
+
                }
+
+
             });
+
          });
+
+
       });
 </script>
+
+
+
+    
+
+    
+
+
 
 </body>
 </html>
