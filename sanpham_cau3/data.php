@@ -13,8 +13,7 @@ if(isset($_POST["masp"]) && isset($_POST["tensp"]) && isset($_POST["nuocsx"]) &&
 {
     $masp = $_POST['masp'];
     $tensp = $_POST['tensp'];
-    $nuocsx = $_POST['nuocsx'];
-    
+    $nuocsx = $_POST['nuocsx']; 
     $dvtinh = $_POST['dvtinh'];
     $gia = $_POST['gia'];
     $loaisp = $_POST['loaisp'];
@@ -31,8 +30,21 @@ if(isset($_POST["masp"]) && isset($_POST["tensp"]) && isset($_POST["nuocsx"]) &&
 
       echo"Không Thành Công";
 
-    }
+    } 
       
+  }
+  //xóa
+  if(isset($_POST['id'])){
+    $id = $_POST['id'];
+   
+    $xoa = mysqli_query($mysqli, "DELETE FROM sanpham WHERE MASP = '$id'");
+  }
+  //sửa
+  if(isset($_POST['id_sua'])){
+    $id = $_POST['id_sua'];
+    $text = $_POST['text'];
+    $column_name = $_POST['column_name'];
+    $sua = mysqli_query($mysqli, "UPDATE sanpham SET $column_name = '$text' WHERE MASP = '$id'");
   }
  
 ?> 
